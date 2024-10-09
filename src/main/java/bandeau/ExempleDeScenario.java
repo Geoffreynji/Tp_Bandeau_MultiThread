@@ -26,15 +26,28 @@ public class ExempleDeScenario {
         s.addEffect(new FontEnumerator(10), 1);
         s.addEffect(new Rainbow("Comme c'est joli !", 30), 1);
         s.addEffect(new Rotate("2 tours à droite", 180, 4000, true), 2);
+
+        // On cree un scenario numéro 3
+        Scenario s3 = new Scenario();
+        // On lui ajoute des effets
+        s3.addEffect(new RandomEffect(message, 700), 1);
+        s3.addEffect(new TeleType("Je m'affiche caractère par caractère (bandeau 3)", 100), 1);
+        s3.addEffect(new Blink("Je clignote 10x", 100), 10);
+        s3.addEffect(new Zoom("Je zoome", 50), 1);
+        s3.addEffect(new FontEnumerator(10), 1);
+        s3.addEffect(new Rainbow("Comme c'est joli !", 30), 1);
+        s3.addEffect(new Rotate("2 tours à droite", 180, 4000, true), 2);
         
         // On cree les bandeaux
         Bandeau b1 = new Bandeau();
-        //Bandeau b2 = new Bandeau();
-        //Bandeau b3 = new Bandeau();
+        Bandeau b2 = new Bandeau();
+        Bandeau b3 = new Bandeau();
         System.out.println("CTRL+C pour terminer le programme");
         // On doit jouer le scénario en même temps sur plusieurs bandeaux :
         s.playOn(b1);
-        //s.playOn(b2);
+        s.playOn(b2);
+        //s3.playOn(b3); A tester pour voir s'il lance plusieurs scenarios sur le même bandeau
+        s.playOn(b3);
         
         // On ne doit pas pouvoir changer un scénario quand il est en train de se jouer
         try {
